@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+    <ion-card (click)="editDetails()">
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              {{agent.name}}
+            </ion-item>
+            <ion-item>
+                {{agent.email}}
+              </ion-item>
+              <ion-item>
+                  {{agent.company}}
+                </ion-item>
+                <ion-item>
+                    {{agent.phone}}
+                  </ion-item>
+     
+          </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="hasTeamLeader">
+        <ion-card-content>
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Team Leader</ion-label>
+            </ion-list-header>
+            <ion-item>
+              {{teamLeader.name}}
+            </ion-item>
+            <ion-item>
+              {{teamLeader.email}}
+            </ion-item>
+     
+          </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

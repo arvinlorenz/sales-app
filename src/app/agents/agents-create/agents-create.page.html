@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title *ngIf="editMode">
+      Edit Details
+    </ion-title>
+    <ion-title *ngIf="!editMode">
+      Create Agent
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (submit)="saveAgent()">
+    <ion-item>
+      <ion-label>Name: </ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Company: </ion-label>
+      <ion-input type="text" formControlName="company"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone: </ion-label>
+      <ion-input type="text" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Team Leader</ion-label>
+      <ion-select placeholder="Team Leader" formControlName="teamLeaderId">
+        <ion-select-option [value]="agent.id" *ngFor="let agent of allAgents">{{ agent.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-button expand="block" type="submit">Save</ion-button>
+  </form>
+</ion-content>
